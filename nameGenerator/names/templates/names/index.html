@@ -4,18 +4,24 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Names generator</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'names/style.css' %}">
+        <title>Stupid Name Generator</title>
     </head>
     <body>
-        <h1>Names Generator</h1>
-        {% if name %}
-            <p>{{ name }}</p>
-        {% else %}
-            <p>Not generated name yet.</p>
-        {% endif %}
-        <form action="{% url 'names:generate' %}" method="POST">
-            {% csrf_token %}
-            <button type="submit">Generate name</button>
-        </form>
+        <header>
+            <h1>Stupid Name Generator</h1>
+        </header>
+        <div class="name__box">
+            {% if name %}
+                <p>{{ name }}</p>
+            {% else %}
+                <p>Not generated name yet.</p>
+            {% endif %}
+            <form action="{% url 'names:generate' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Generate name</button>
+            </form>
+            </div>
     </body>
 </html>
