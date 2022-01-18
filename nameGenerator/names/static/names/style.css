@@ -42,3 +42,16 @@ button {
 button:hover {
     background-color: #ECEDEE;
 }
+
+.buttons {
+    display: flex;
+    width: 20em;
+    justify-content: space-between;
+}
+
+#copied {
+    margin: 0;
+    padding: 0;
+    margin-left: 2em;
+    color: red;
+}

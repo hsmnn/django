@@ -12,7 +12,7 @@ class IndexView(View):
         r = RandomWord()
         adj = r.word(include_parts_of_speech=["adjectives"])
         name = r.word(include_parts_of_speech=["nouns"])
-        fullName = adj + "_" + name
+        fullName = adj + " " + name
         n = Name()
         n.name = fullName
         n.save()

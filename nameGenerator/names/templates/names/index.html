@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'names/style.css' %}">
+        <script type="text/javascript" src="{% static 'names/application.js' %}"></script>
         <title>Stupid Name Generator</title>
     </head>
     <body>
@@ -14,14 +15,20 @@
         </header>
         <div class="name__box">
             {% if name %}
-                <p>{{ name }}</p>
+                <p id="copy">{{ name }}</p>
             {% else %}
                 <p>Not generated name yet.</p>
             {% endif %}
-            <form action="{% url 'names:generate' %}" method="POST">
-                {% csrf_token %}
-                <button type="submit">Generate name</button>
-            </form>
+            <div class="buttons">
+                <form action="{% url 'names:generate' %}" method="POST">
+                    {% csrf_token %}
+                    <button onclick="removeCopied()" type="submit">Generate name</button>
+                </form>
+                <div class="buttons_copy">
+                    <button onclick="copyText()">Copy text</button>
+                    <p id="copied"></p>
+                </div>
             </div>
+        </div>
     </body>
 </html>
